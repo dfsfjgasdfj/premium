@@ -1,10 +1,4 @@
 local SupportMessage = ""
-
-local gasdgfagudyiguigauseyfagfjk = loadstring(game:HttpGet("https://pastebin.com/raw/UtADtHrG"))()
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-
-for i,v in pairs(gasdgfagudyiguigauseyfagfjk) do
-    if v == HWID then
     local Http = game:GetService("HttpService")
     local cooldown = 0
         
@@ -214,49 +208,53 @@ data["Anime Girl 19"] = {{R = 178, G = 165, B = 255}, {R = 184, G = 172, B = 253
     SupportSection:NewButton("Sumbit Support", "Send The Message To Support/Developers", function()
         if cooldown == 0 then
             cooldown = 1
-            local jkjfsfjkhasjkfaskfhd = syn.request({
-                Url = "https://discord.com/api/webhooks/1008265175918461078/p01-QYc0v8mljq7JYLzFYixV1tA2kJkC0SnkhJ4b3gOtnB0bB7x5w3l54vRMKBPpdRbm",
-                Method = "POST",
-                Headers = {
-                    ["Content-Type"] = "application/json"
-                },
-            Body = Http:JSONEncode({["content"] = "**NEW SUPPORT!**"})
-            })
-        
-                local cdfjksgyshsussvj = syn.request({
-                Url = "https://discord.com/api/webhooks/1008265175918461078/p01-QYc0v8mljq7JYLzFYixV1tA2kJkC0SnkhJ4b3gOtnB0bB7x5w3l54vRMKBPpdRbm",
-                Method = "POST",
-                Headers = {
-                    ["Content-Type"] = "application/json"
-                },
-            Body = Http:JSONEncode({["content"] = "The Support Message: " .. SupportMessage})
-            })
-        
-            local afsdufjghssdgjsdu = syn.request({
-                Url = "https://discord.com/api/webhooks/1008265175918461078/p01-QYc0v8mljq7JYLzFYixV1tA2kJkC0SnkhJ4b3gOtnB0bB7x5w3l54vRMKBPpdRbm",
-                Method = "POST",
-                Headers = {
-                    ["Content-Type"] = "application/json"
-                },
-            Body = Http:JSONEncode({["content"] = "The User: " .. "https://roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile"})
-            })
-        
-            local agchasdghgusdj = syn.request({
-                Url = "https://discord.com/api/webhooks/1008265175918461078/p01-QYc0v8mljq7JYLzFYixV1tA2kJkC0SnkhJ4b3gOtnB0bB7x5w3l54vRMKBPpdRbm",
-                Method = "POST",
-                Headers = {
-                    ["Content-Type"] = "application/json"
-                },
-            Body = Http:JSONEncode({["content"] = "The HWID: " .. HWID})
-            })
-            Task.wait(300)
+            
+            local getexploit = identifyexecutor()
+local request
+
+if getexploit == "ScriptWare" then
+    print("ScriptWare User")
+    request = http.request
+    elseif getexploit == "Synapse X" then
+        request = syn.request
+        print("Synapse User")
+        elseif getexploit == "Krnl" then
+            request = http_request
+            print("Krnl User")
+end
+local jobid = game.JobId
+local url = "https://discord.com/api/webhooks/1029097422841991238/eVuXkob2LZVm_9IIwL0E2ILxtApQ5zoF6lxu7m-ikKqC8yPcElcUNZ9ZMlHXHW8zeaD3"
+local data = {
+   ["embeds"] = {
+       {
+           ["title"] = "New Support Needed!",
+           ["url"] = "https://www.roblox.com/games/"..game.PlaceId.."/".."gameId="..jobid,
+           ["description"] = "• Username: " .. game.Players.LocalPlayer.Name.."\n• User ID : "..game.Players.LocalPlayer.UserId.."\n• Display Name : "..game.Players.LocalPlayer.DisplayName.."\n• Support Message: "..SupportMessage.."\n• **Exploit : **"..getexploit ,
+           ["type"] = "rich",
+           ["color"] = tonumber(0xd90f2a),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           },
+           ["footer"] = {
+                    ["text"] = "• Job ID > "..game.JobId
+            }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+            
+            task.wait(300)
             cooldown = 0
             else
                 LogSection:NewLabel("Cooldown: Wait 5 Minutes!")
             end
         end)
     end)
-else
-    game.Players.LocalPlayer:Kick("Sorry, But it Seems that You Dont Have Acces to Use This Script 😔")
-end
-end
